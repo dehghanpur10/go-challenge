@@ -5,7 +5,6 @@ provider:
   runtime: go1.x
   lambdaHashingVersion: 20201221
 
-  # you can overwrite defaults here
   stage: api
   region: us-west-2
 
@@ -19,11 +18,10 @@ package:
     - ./bin/**
 
 functions:
-  hello:
+  app:
     handler: bin/main
     events:
       - http:
           path: /{proxy+}
           method: any
           cors: true
-

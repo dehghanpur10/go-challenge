@@ -19,3 +19,5 @@ func Handler(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse,
 func main() {
 	lambda.Start(Handler)
 }
+
+//env GOOS=linux go build -o bin/main main.go

@@ -11,7 +11,7 @@ func GetDevice(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(200)
 	marshal, err := json.Marshal(&struct {
 		Name string `json:"name"`
-	}{Name: "aaa"})
+	}{Name: "ali"})
 	write, err := w.Write(marshal)
 	log.Println(write)
 	if err != nil {
