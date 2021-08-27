@@ -9,6 +9,7 @@ import (
 )
 
 func Handler(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+
 	router := mux.NewRouter()
 	deviceRoute.SetDeviceRouter(router)
 

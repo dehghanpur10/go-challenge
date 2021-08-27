@@ -1,0 +1,29 @@
+service: moh-deh-backend-challenge
+
+provider:
+  name: aws
+  runtime: go1.x
+  lambdaHashingVersion: 20201221
+
+  # you can overwrite defaults here
+  stage: api
+  region: us-west-2
+
+# you can define service wide environment variables here
+#  environment:
+#    variable1: value1
+
+package:
+  patterns:
+    - '!./**'
+    - ./bin/**
+
+functions:
+  hello:
+    handler: bin/main
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
+          cors: true
+
