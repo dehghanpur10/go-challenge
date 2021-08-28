@@ -19,7 +19,12 @@ func TestName(t *testing.T) {
 		Note:        "a",
 		Serial:      "a",
 	}
+	_ = os.Setenv("AWS_REGION", "us-west-2")
+	_ = os.Setenv("TABLE_NAME", "Devices")
+
 	CreateItem(t, input)
+	_ = os.Unsetenv("AWS_REGION")
+	_ = os.Unsetenv("TABLE_NAME")
 	tests := []struct {
 		name   string
 		id     string
