@@ -27,7 +27,7 @@ func TestCreateService(t *testing.T) {
 			service := NewCreateService(mockDB)
 
 			err := service.CreateDevice(models.Device{})
-			if err != nil {
+			if err == nil {
 				assert.Nil(t, test.errorExpected)
 			} else {
 				assert.Error(t, test.errorExpected, err.Error())
