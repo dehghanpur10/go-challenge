@@ -2,7 +2,6 @@ package deviceController
 
 import (
 	"encoding/json"
-	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute"
 	"github.com/go-playground/validator/v10"
 	"go-challenge/models"
 	"go-challenge/repository/dynamoDB"
@@ -33,7 +32,7 @@ func SetDevice(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	service := deviceService.NewCreateService(dynamoDB.NewDeviceDB(db), dynamodbattribute.MarshalMap)
+	service := deviceService.NewCreateService(dynamoDB.NewDeviceDB(db))
 	err = service.CreateDevice(device)
 	if err != nil {
 		log.Println(err)
