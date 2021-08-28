@@ -21,7 +21,7 @@ func SetDevice(w http.ResponseWriter, r *http.Request) {
 	err := validate.Struct(device)
 	if err != nil {
 		log.Println(err)
-		createError(w, "invalid device input", http.StatusBadRequest)
+		createError(w, "invalid device info", http.StatusBadRequest)
 		return
 	}
 
