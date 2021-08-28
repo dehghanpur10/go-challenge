@@ -4,8 +4,8 @@ import (
 	"errors"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
-	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
 	"go-challenge/models"
+	"go-challenge/repository/dynamoDB"
 	"log"
 	"os"
 )
@@ -15,12 +15,13 @@ type MarshalType func(in interface{}) (map[string]*dynamodb.AttributeValue, erro
 
 //Core is struct for handle request, dynamoDB client and marshalMap are dependency injection
 type Core struct {
-	db         dynamodbiface.DynamoDBAPI
+	db         dynamoDB.DeviceDynamoDB
 	marshalMap MarshalType
 }
 
 //NewCreateService is function for create new core for handler lambada
-func NewCreateService(db dynamodbiface.DynamoDBAPI, marshal MarshalType) *Core {
+func NewCreateService(db dynamoDB.DeviceDynamoDB, marshal MarshalType) *Core {
+
 	return &Core{
 		db:         db,
 		marshalMap: marshal,
