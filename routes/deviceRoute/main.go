@@ -7,6 +7,6 @@ import (
 
 //SetDeviceRouter is func that set router of device model
 func SetDeviceRouter(router *mux.Router) {
-	router.HandleFunc("/devices", deviceController.GetDevice).Methods("GET")
-	router.HandleFunc("/devices/{id}", deviceController.SetDevice).Methods("POST")
+	router.HandleFunc("/devices", deviceController.SetDevice).Methods("POST")
+	router.HandleFunc("/devices/{id}", deviceController.GetDevice).Methods("GET")
 }

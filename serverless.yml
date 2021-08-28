@@ -9,8 +9,10 @@ provider:
   region: us-west-2
 
 # you can define service wide environment variables here
-#  environment:
-#    variable1: value1
+  environment:
+    ACCESS_TOKEN: ${env:AWS_ACCESS_KEY_ID }
+    SECRET_KEY: ${env:AWS_SECRET_ACCESS_KEY}
+    TABLE_NAME: Devices
 
 package:
   patterns:
