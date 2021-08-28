@@ -40,7 +40,7 @@ func TestGetDeviceController(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			_ = os.Setenv("TABLE_NAME","Devices")
-			if test.name == "ok" {
+			if test.name == "odk" {
 				_ = os.Setenv("AWS_REGION","us-west-2")
 			}
 			router := mux.NewRouter()
