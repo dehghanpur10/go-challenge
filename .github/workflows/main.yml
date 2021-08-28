@@ -19,7 +19,8 @@ jobs:
         go-version: 1.17
     - name: go get
       run: go get -u github.com/awslabs/aws-lambda-go-api-proxy
-      
+    - name: test
+      run: go test ./...
     - name: Build
       run: env GOOS=linux go build -o bin/main main.go
 
