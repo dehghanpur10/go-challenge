@@ -7,9 +7,11 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"go-challenge/models"
+	"go-challenge/services/deviceService"
 	"log"
 	"net/http"
 	"os"
+	"testing"
 )
 
 func GetDynamoDB() (*dynamodb.DynamoDB, error) {
@@ -36,4 +38,34 @@ func CreateError(w http.ResponseWriter, err string, status int) {
 		Message: err,
 	})
 	_, _ = w.Write(result)
+}
+
+func CreateItem(t *testing.T, item models.Device) {
+	db, err := GetDynamoDB()
+	if err != nil {
+		t.Fatal("error in connection to dynamodb")
+	}
+	err = deviceService.NewCreateService(db).CreateDevice(item)
+	if err != nil {
+		t.Fatal("error in create device item")
+	}
+}
+
+func DeleteItem(t *testing.T,id string)  {
+	db, err:= GetDynamoDB()
+	if err != nil {
+		t.Fatal("error in connect to dynamoDB")
+	}
+	deleteItemInput := &dynamodb.DeleteItemInput{
+		TableName: aws.String(os.Getenv("TABLE_NAME")),
+		Key: map[string]*dynamodb.AttributeValue{
+			"id": &dynamodb.AttributeValue{
+				S: aws.String(id),
+			},
+		},
+	}
+	_, err = db.DeleteItem(deleteItemInput)
+	if err != nil {
+		t.Fatal("error in delete item from dynamoDB")
+	}
 }

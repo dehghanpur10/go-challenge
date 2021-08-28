@@ -3,8 +3,6 @@ package deviceController
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/gorilla/mux"
 	"github.com/stretchr/testify/assert"
 	"go-challenge/models"
@@ -41,9 +39,9 @@ func TestGetDeviceController(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			_ = os.Setenv("TABLE_NAME", "Devices")
 			if test.name == "ok" {
 				_ = os.Setenv("AWS_REGION", "us-west-2")
+				_ = os.Setenv("TABLE_NAME", "Devices")
 			}
 			router := mux.NewRouter()
 			router.HandleFunc("/devices", SetDevice).Methods("POST")
@@ -67,16 +65,7 @@ func TestGetDeviceController(t *testing.T) {
 
 		})
 	}
-
-	db, _ := GetDynamoDB()
-	deleteItemInput := &dynamodb.DeleteItemInput{
-		TableName: aws.String(os.Getenv("TABLE_NAME")),
-		Key: map[string]*dynamodb.AttributeValue{
-			"id": &dynamodb.AttributeValue{
-				S: aws.String(input.Id),
-			},
-		},
-	}
-	_, _ = db.DeleteItem(deleteItemInput)
+	//clear data in dynamoDB
+	DeleteItem(t, input.Id)
 
 }
