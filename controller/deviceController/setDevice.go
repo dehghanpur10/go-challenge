@@ -36,7 +36,7 @@ func SetDevice(w http.ResponseWriter, r *http.Request) {
 	err = service.CreateDevice(device)
 	if err != nil {
 		log.Println(err)
-		createError(w, "internal server error", http.StatusInternalServerError)
+		CreateError(w, "internal server error", http.StatusInternalServerError)
 		return
 	}
 
