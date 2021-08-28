@@ -46,7 +46,7 @@ func TestName(t *testing.T) {
 				_ = os.Setenv("TABLE_NAME", "Devices")
 			}
 			router := mux.NewRouter()
-			router.HandleFunc("/devices/{id}", SetDevice).Methods("GET")
+			router.HandleFunc("/devices/{id}", GetDevice).Methods("GET")
 
 			req, _ := http.NewRequest(http.MethodGet, "/devices/"+test.id, nil)
 
