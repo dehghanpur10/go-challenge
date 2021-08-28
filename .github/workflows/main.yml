@@ -21,6 +21,9 @@ jobs:
       run: go get -u github.com/awslabs/aws-lambda-go-api-proxy
     - name: test
       run: go test ./...
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     - name: Build
       run: env GOOS=linux go build -o bin/main main.go
 
