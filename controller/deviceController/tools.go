@@ -1,11 +1,14 @@
 package deviceController
 
 import (
+	"encoding/json"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
+	"go-challenge/models"
 	"log"
+	"net/http"
 	"os"
 )
 
@@ -25,4 +28,12 @@ func GetDynamoDB() (*dynamodb.DynamoDB, error) {
 		return &dynamodb.DynamoDB{}, err
 	}
 	return dynamodb.New(awsSession), nil
+}
+
+func CreateError(w http.ResponseWriter, err string, status int) {
+	w.WriteHeader(status)
+	result, _ := json.Marshal(models.Error{
+		Message: err,
+	})
+	_, _ = w.Write(result)
 }

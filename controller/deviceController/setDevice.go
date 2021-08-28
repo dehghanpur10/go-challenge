@@ -21,14 +21,14 @@ func SetDevice(w http.ResponseWriter, r *http.Request) {
 	err := validate.Struct(device)
 	if err != nil {
 		log.Println(err)
-		createError(w, "invalid device info", http.StatusBadRequest)
+		CreateError(w, "invalid device info", http.StatusBadRequest)
 		return
 	}
 
 	db, err := GetDynamoDB()
 	if err != nil {
 		log.Println(err)
-		createError(w, "internal server error", http.StatusInternalServerError)
+		CreateError(w, "internal server error", http.StatusInternalServerError)
 		return
 	}
 
@@ -45,10 +45,4 @@ func SetDevice(w http.ResponseWriter, r *http.Request) {
 	_, _ = w.Write(result)
 
 }
-func createError(w http.ResponseWriter, err string, status int) {
-	w.WriteHeader(status)
-	result, _ := json.Marshal(models.Error{
-		Message: err,
-	})
-	_, _ = w.Write(result)
-}
+
