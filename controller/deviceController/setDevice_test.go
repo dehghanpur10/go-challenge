@@ -13,6 +13,8 @@ import (
 )
 
 func TestGetDeviceController(t *testing.T) {
+	_ = os.Unsetenv("AWS_REGION")
+	_ = os.Unsetenv("TABLE_NAME")
 	input := models.Device{
 		Id:          "333",
 		DeviceModel: "a",
