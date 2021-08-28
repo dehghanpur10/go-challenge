@@ -11,8 +11,8 @@ import (
 	"os"
 )
 
-//NewGetCoreService is function for create new core for handler lambada
-func NewGetCoreService(db dynamoDB.DeviceDynamoDB) *GetCore {
+//NewGetService is function for create new core for handler lambada
+func NewGetService(db dynamoDB.DeviceDynamoDB) *GetCore {
 	return &GetCore{
 		db: db,
 	}

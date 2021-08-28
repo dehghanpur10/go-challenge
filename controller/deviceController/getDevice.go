@@ -21,7 +21,7 @@ func GetDevice(w http.ResponseWriter, r *http.Request) {
 	}
 
 	vars := mux.Vars(r)
-	service := deviceService.NewGetCoreService(dynamoDB.NewDeviceDB(db))
+	service := deviceService.NewGetService(dynamoDB.NewDeviceDB(db))
 	item, err := service.GetDevice(vars["id"])
 	if err != nil {
 		if err.Error() == "server error" {

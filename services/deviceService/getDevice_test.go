@@ -30,7 +30,7 @@ func TestGetDevice(t *testing.T) {
 			mockDB.On("GetItem", mock.Anything).Return(&dynamodb.GetItemOutput{
 				Item: test.item,
 			}, test.getItemError)
-			service := NewGetCoreService(mockDB)
+			service := NewGetService(mockDB)
 
 			output, err := service.GetDevice("")
 			if err == nil {
