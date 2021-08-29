@@ -9,7 +9,16 @@ import (
 	"net/http"
 )
 
-//GetDevice is controller for get device from dynamoDB
+// GetDevice
+// @Summary get a device info by id
+// @Description this endpoint give id of device and back dive info
+// @Tags device
+// @Accept  json
+// @Produce  json
+// @Param id path string true "device id"
+// @Success 200 {object} models.Device
+// @Failure 500,404 {object} models.Error
+// @Router /devices/{id} [get]
 func GetDevice(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 

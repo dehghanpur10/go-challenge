@@ -1,0 +1,102 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Implement a simple Restful API on AWS",
+        "title": "GO challenge",
+        "contact": {
+            "name": "Mohammad Dehghanpour",
+            "email": "m.dehghanpour10@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/devices/{id}": {
+            "get": {
+                "description": "this endpoint give id of device and back dive info",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "device"
+                ],
+                "summary": "get a device info by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "device id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Device"
+                        }
+                    },
+                    "404": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Device": {
+            "type": "object",
+            "required": [
+                "deviceModel",
+                "id",
+                "name",
+                "note",
+                "serial"
+            ],
+            "properties": {
+                "deviceModel": {
+                    "type": "string",
+                    "example": "/devicemodels/id1"
+                },
+                "id": {
+                    "type": "string",
+                    "example": "/devices/id1"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "Sensor"
+                },
+                "note": {
+                    "type": "string",
+                    "example": "Testing a sensor"
+                },
+                "serial": {
+                    "type": "string",
+                    "example": "A020000102"
+                }
+            }
+        },
+        "models.Error": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

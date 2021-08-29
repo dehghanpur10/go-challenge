@@ -1,0 +1,70 @@
+basePath: /
+definitions:
+  models.Device:
+    properties:
+      deviceModel:
+        example: /devicemodels/id1
+        type: string
+      id:
+        example: /devices/id1
+        type: string
+      name:
+        example: Sensor
+        type: string
+      note:
+        example: Testing a sensor
+        type: string
+      serial:
+        example: A020000102
+        type: string
+    required:
+    - deviceModel
+    - id
+    - name
+    - note
+    - serial
+    type: object
+  models.Error:
+    properties:
+      message:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: m.dehghanpour10@gmail.com
+    name: Mohammad Dehghanpour
+  description: Implement a simple Restful API on AWS
+  title: GO challenge
+  version: "1.0"
+paths:
+  /devices/{id}:
+    get:
+      consumes:
+      - application/json
+      description: this endpoint give id of device and back dive info
+      parameters:
+      - description: device id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Device'
+        "404":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Error'
+      summary: get a device info by id
+      tags:
+      - device
+swagger: "2.0"

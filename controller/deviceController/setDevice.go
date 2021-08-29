@@ -10,7 +10,16 @@ import (
 	"net/http"
 )
 
-//SetDevice is controller for set device to dynamoDB
+// SetDevice
+// @Summary create a new device info
+// @Description this endpoint create a new device info
+// @Tags device
+// @Accept  json
+// @Produce  json
+// @Param device body models.Device true "device id"
+// @Success 201 {object} models.Device
+// @Failure 500,400 {object} models.Error
+// @Router /devices/{id} [get]
 func SetDevice(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 
