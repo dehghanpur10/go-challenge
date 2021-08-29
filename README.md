@@ -29,3 +29,7 @@
 we need convert aws req to golang req and use it in gorilla mux router, the end covert golang res to aws res. for this purpose 
 we use `awslabs` package.
 
+:pushpin: For controller, integration tests applied, and items that created in integration test delete at the end of test.
+
+:pushpin: For services, unit tests applied, first we mock that dependency which use in service, and we isolated this service
+
