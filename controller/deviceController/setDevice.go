@@ -19,7 +19,7 @@ import (
 // @Param device body models.Device true "device id"
 // @Success 201 {object} models.Device
 // @Failure 500,400 {object} models.Error
-// @Router /devices/{id} [get]
+// @Router /devices [post]
 func SetDevice(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 

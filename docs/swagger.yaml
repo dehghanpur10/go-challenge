@@ -38,6 +38,36 @@ info:
   title: GO challenge
   version: "1.0"
 paths:
+  /devices:
+    post:
+      consumes:
+      - application/json
+      description: this endpoint create a new device info
+      parameters:
+      - description: device id
+        in: body
+        name: device
+        required: true
+        schema:
+          $ref: '#/definitions/models.Device'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Device'
+        "400":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Error'
+      summary: create a new device info
+      tags:
+      - device
   /devices/{id}:
     get:
       consumes:
