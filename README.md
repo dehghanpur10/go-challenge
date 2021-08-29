@@ -29,6 +29,17 @@
 we need convert aws req to golang req and use it in gorilla mux router, the end covert golang res to aws res. for this purpose 
 we use `awslabs` package.
 
+## Details
+:black_nib: Lambda function defined in `main` package, first gorilla mux created then set router
+that we need them, then it passes as dependency to  gorillaMux adapter in `awslabs` package for convert req and res, and req within it proccessed
+by gorilla mux router, finally return response.
+
+:black_nib: In controller, first valid data input and connect to dynamoDB then as dependency pass to service for do job, finally
+set status code according to different conditions, and set response body.
+
+
+## Test
+
 :pushpin: For controller, integration tests applied, and items that created in integration test delete at the end of test.
 
 :pushpin: For services, unit tests applied, first we mock that dependency which use in service, and we isolated this service
