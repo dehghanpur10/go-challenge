@@ -37,10 +37,12 @@ by gorilla mux router, finally return response.
 :black_nib: In controller, first valid data input and connect to dynamoDB then as dependency pass to service for do job, finally
 set status code according to different conditions, and set body of response.
 
+:black_nib: In service, first prepare data for communication with the database. database is dependency of service because it can be tested later.
 
 ## Test
 
 :pushpin: For controller, integration tests applied, and items that created in integration test delete at the end of test.
 
 :pushpin: For services, unit tests applied, first we mock that dependency which use in service, and we isolated this service
+
 
