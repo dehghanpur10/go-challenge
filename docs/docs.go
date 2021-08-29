@@ -59,7 +59,7 @@ var doc = `{
                         }
                     },
                     "400": {
-                        "description": "Internal Server Error",
+                        "description": "Bad Request",
                         "schema": {
                             "$ref": "#/definitions/models.Error"
                         }
@@ -103,7 +103,7 @@ var doc = `{
                         }
                     },
                     "404": {
-                        "description": "Internal Server Error",
+                        "description": "Not Found",
                         "schema": {
                             "$ref": "#/definitions/models.Error"
                         }
@@ -174,7 +174,7 @@ type swaggerInfo struct {
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
 	Version:     "1.0",
-	Host:        "https://tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api",
+	Host:        "tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api",
 	BasePath:    "/",
 	Schemes:     []string{},
 	Title:       "GO challenge",

@@ -29,7 +29,7 @@ definitions:
       message:
         type: string
     type: object
-host: https://tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api
+host: tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api
 info:
   contact:
     email: m.dehghanpour10@gmail.com
@@ -58,7 +58,7 @@ paths:
           schema:
             $ref: '#/definitions/models.Device'
         "400":
-          description: Internal Server Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/models.Error'
         "500":
@@ -87,7 +87,7 @@ paths:
           schema:
             $ref: '#/definitions/models.Device'
         "404":
-          description: Internal Server Error
+          description: Not Found
           schema:
             $ref: '#/definitions/models.Error'
         "500":

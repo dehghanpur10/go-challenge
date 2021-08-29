@@ -17,7 +17,8 @@ import (
 // @Produce  json
 // @Param id path string true "device id"
 // @Success 200 {object} models.Device
-// @Failure 500,404 {object} models.Error
+// @Failure 500 {object} models.Error
+// @Failure 404 {object} models.Error
 // @Router /devices/{id} [get]
 func GetDevice(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")

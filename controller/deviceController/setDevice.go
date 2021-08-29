@@ -18,7 +18,8 @@ import (
 // @Produce  json
 // @Param device body models.Device true "device id"
 // @Success 201 {object} models.Device
-// @Failure 500,400 {object} models.Error
+// @Failure 400 {object} models.Error
+// @Failure 500 {object} models.Error
 // @Router /devices [post]
 func SetDevice(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")

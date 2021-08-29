@@ -9,7 +9,7 @@
         },
         "version": "1.0"
     },
-    "host": "https://tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api",
+    "host": "tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api",
     "basePath": "/",
     "paths": {
         "/devices": {
@@ -44,7 +44,7 @@
                         }
                     },
                     "400": {
-                        "description": "Internal Server Error",
+                        "description": "Bad Request",
                         "schema": {
                             "$ref": "#/definitions/models.Error"
                         }
@@ -88,7 +88,7 @@
                         }
                     },
                     "404": {
-                        "description": "Internal Server Error",
+                        "description": "Not Found",
                         "schema": {
                             "$ref": "#/definitions/models.Error"
                         }
