@@ -27,15 +27,15 @@
 
 :pushpin: The request and response that aws pass to lambda is different with the request and response that gorilla mux work with them. so 
 we need convert aws req to golang req and use it in gorilla mux router, the end covert golang res to aws res. for this purpose 
-we use `awslabs` package.
+we use [`awslabs`](https://github.com/awslabs/aws-lambda-go-api-proxy) package.
 
 ## Details
-:black_nib: Lambda function defined in `main` package, first gorilla mux created then set router
-that we need them, then it passes as dependency to  gorillaMux adapter in `awslabs` package for convert req and res, and req within it proccessed
+:black_nib: Lambda function defined in [`main`](https://github.com/dehghanpur10/go-challenge/blob/master/main.go) package, first gorilla mux created then set router
+that we need them, then it passes as dependency to  gorillaMux adapter in [`awslabs`](https://github.com/awslabs/aws-lambda-go-api-proxy) package for convert req and res, and req within it proccessed
 by gorilla mux router, finally return response.
 
 :black_nib: In controller, first valid data input and connect to dynamoDB then as dependency pass to service for do job, finally
-set status code according to different conditions, and set response body.
+set status code according to different conditions, and set body of response.
 
 
 ## Test
