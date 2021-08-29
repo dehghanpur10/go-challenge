@@ -11,7 +11,7 @@ import (
 
 // GetDevice
 // @Summary get a device info by id
-// @Description this endpoint give id of device and back dive info
+// @Description this endpoint receives id of device and back dive info
 // @Tags device
 // @Accept  json
 // @Produce  json

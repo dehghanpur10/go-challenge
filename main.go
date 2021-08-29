@@ -26,7 +26,7 @@ func Handler(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse,
 // @description Implement a simple Restful API on AWS
 // @contact.name Mohammad Dehghanpour
 // @contact.email m.dehghanpour10@gmail.com
-// @host localhost:8080
+// @host https://tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api
 // @BasePath /
 func main() {
 	lambda.Start(Handler)

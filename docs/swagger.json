@@ -9,7 +9,7 @@
         },
         "version": "1.0"
     },
-    "host": "localhost:8080",
+    "host": "https://tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api",
     "basePath": "/",
     "paths": {
         "/devices": {
@@ -60,7 +60,7 @@
         },
         "/devices/{id}": {
             "get": {
-                "description": "this endpoint give id of device and back dive info",
+                "description": "this endpoint receives id of device and back dive info",
                 "consumes": [
                     "application/json"
                 ],

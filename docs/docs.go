@@ -75,7 +75,7 @@ var doc = `{
         },
         "/devices/{id}": {
             "get": {
-                "description": "this endpoint give id of device and back dive info",
+                "description": "this endpoint receives id of device and back dive info",
                 "consumes": [
                     "application/json"
                 ],
@@ -174,7 +174,7 @@ type swaggerInfo struct {
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
 	Version:     "1.0",
-	Host:        "localhost:8080",
+	Host:        "https://tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api",
 	BasePath:    "/",
 	Schemes:     []string{},
 	Title:       "GO challenge",

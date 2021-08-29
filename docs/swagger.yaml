@@ -29,7 +29,7 @@ definitions:
       message:
         type: string
     type: object
-host: localhost:8080
+host: https://tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api
 info:
   contact:
     email: m.dehghanpour10@gmail.com
@@ -72,7 +72,7 @@ paths:
     get:
       consumes:
       - application/json
-      description: this endpoint give id of device and back dive info
+      description: this endpoint receives id of device and back dive info
       parameters:
       - description: device id
         in: path
