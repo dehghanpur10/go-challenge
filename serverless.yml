@@ -8,7 +8,7 @@ provider:
   stage: api
   region: us-west-2
 
-# you can define service wide environment variables here
+  # you can define service wide environment variables here
   environment:
     ACCESS_TOKEN: ${env:AWS_ACCESS_KEY_ID }
     SECRET_KEY: ${env:AWS_SECRET_ACCESS_KEY}
@@ -27,17 +27,17 @@ functions:
           path: /{proxy+}
           method: any
           cors: true
-
-UsersTable:
-  Type: AWS::DynamoDB::Table
-  Properties:
-    TableName: users
-    AttributeDefinitions:
-      - AttributeName: user_id
-        AttributeType: S
-    KeySchema:
-      - AttributeName: user_id
-        KeyType: HASH
-    ProvisionedThroughput:
-      ReadCapacityUnits: 5
-      WriteCapacityUnits: 5
+Resources:
+  UsersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: users
+      AttributeDefinitions:
+        - AttributeName: user_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: user_id
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
