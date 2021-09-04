@@ -32,12 +32,12 @@ resources:
     UsersTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: users
+        TableName: Devices
         AttributeDefinitions:
-          - AttributeName: user_id
+          - AttributeName: id
             AttributeType: S
         KeySchema:
-          - AttributeName: user_id
+          - AttributeName: id
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 5
