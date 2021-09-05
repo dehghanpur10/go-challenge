@@ -46,3 +46,5 @@ set status code according to different conditions, and set body of response.
 :pushpin: For services, unit tests applied, first we mock that dependency which use in service, and we isolated this service
 
 
+## serverless
+In serverless.yml file set config for apigetwaye and dynamoDB table and lambda function.github action was set to automated test, build and deploy to aws,too 
