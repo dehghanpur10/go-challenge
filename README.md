@@ -2,7 +2,7 @@
 
 ## API
 
-> api url ==> [https://tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api](https://tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api)
+> deploy api url ==> [https://tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api](https://tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api)
 
 > click [here](https://tvwvnaqfy9.execute-api.us-west-2.amazonaws.com/api/swagger/index.html) to see swagger page.
 
